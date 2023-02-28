@@ -21,9 +21,9 @@ func (p Persons) GetByID(id int) domain.PersonInfo {
 	return p.db[id]
 }
 func (p Persons) GetAll() []domain.PersonInfo {
-	all := make([]domain.PersonInfo, 10)
-	for i, c := range p.db {
-		all[i] = c
+	all := make([]domain.PersonInfo, 100)[:0]
+	for _, c := range p.db {
+		all = append(all, c)
 	}
 	return all
 }
