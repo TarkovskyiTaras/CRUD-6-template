@@ -1,7 +1,7 @@
 package service
 
 import (
-	"CRUD-6-template/internal/domain"
+	"github.com/TarasTarkovskyi/CRUD-6-template/internal/domain"
 )
 
 type PersonsRepository interface {

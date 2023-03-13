@@ -1,8 +1,8 @@
 package printout
 
 import (
-	"CRUD-6-template/internal/domain"
 	"fmt"
+	"github.com/TarasTarkovskyi/CRUD-6-template/internal/domain"
 )
 
 type Persons interface {

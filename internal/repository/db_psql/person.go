@@ -1,9 +1,9 @@
 package db_psql
 
 import (
-	"CRUD-6-template/internal/domain"
 	"database/sql"
 	"fmt"
+	"github.com/TarasTarkovskyi/CRUD-6-template/internal/domain"
 	"strings"
 )
 

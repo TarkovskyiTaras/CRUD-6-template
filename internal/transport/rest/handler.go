@@ -1,8 +1,8 @@
 package rest
 
 import (
-	"CRUD-6-template/internal/domain"
 	"encoding/json"
+	"github.com/TarasTarkovskyi/CRUD-6-template/internal/domain"
 	"github.com/gorilla/mux"
 	"io"
 	"net/http"
@@ -40,8 +40,14 @@ func (h Handler) GetByIDHandler(w http.ResponseWriter, r *http.Request) {
 
 	person := h.personsService.GetByID(id)
 
-	JsonMessage, _ := json.Marshal(person)
-	w.Write(JsonMessage)
+	jsonMessage, _ := json.Marshal(person)
+	w.Write(jsonMessage)
+}
+
+func (h Handler) GetAllHandler(w http.ResponseWriter, r *http.Request) {
+	books := h.personsService.GetAll()
+	jsonMessage, _ := json.Marshal(books)
+	w.Write(jsonMessage)
 }
 
 func (h Handler) UpdateByIDHandler(w http.ResponseWriter, r *http.Request) {
@@ -66,6 +72,7 @@ func (h Handler) InitRouter() *mux.Router {
 
 	s.HandleFunc("", h.CreateHandler).Methods(http.MethodPost)
 	s.HandleFunc("/{id}", h.GetByIDHandler).Methods(http.MethodGet)
+	s.HandleFunc("", h.GetAllHandler).Methods(http.MethodGet)
 	s.HandleFunc("/{id}", h.UpdateByIDHandler).Methods(http.MethodPut)
 	s.HandleFunc("/{id}", h.DeleteByIDHandler).Methods(http.MethodDelete)
 
